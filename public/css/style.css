@@ -1,0 +1,779 @@
+.custom_border {
+    border-radius: 0.30rem !important;
+    border-color:rgba(0, 0, 0, 0.7);
+}
+
+.first_card{
+    border-right: 1px solid #ccc;
+}
+
+.form-control {
+    display: block;
+    width: 400px;
+    padding: 0.75rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 450;
+    line-height: 1.5;
+    color: #212529;
+    background-color:#ffffff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    border: 0.5px solid;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.nav-item:hover{
+    background-color: #2434;
+}
+
+
+.blockquote{
+    padding: 10px;
+    border-bottom: 1px solid #212529;
+}
+
+body{
+    background-color: #f9f9f9;
+    min-width: 294px;
+}
+
+
+.card a{
+    text-decoration: none;
+}
+
+
+.container-fluid{
+    background-color: #5F7DC4;
+    ;
+}
+
+
+a.nav-item:hover{
+    background-color: rgba(23, 172, 98, 0.267);
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    padding-top: 23%;
+}
+
+.event{
+    width: auto;
+    height: 160px;
+    padding: 20px;
+    border: solid 2px #303438;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    background: rgba(255, 255, 255, .1);
+    text-align: center;
+    box-shadow: 1px 1px 1px #303233;
+}
+
+.description p{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 100%;
+    width: 90%;
+    overflow-y:auto;
+    text-align: justify;
+}
+
+.description{
+    display: flex;
+}
+
+.details{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-right: 1px solid #212529; 
+}
+
+.details ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.details li{
+    width: 90%;
+    list-style: none;
+    padding: 0;
+}
+
+.description{
+    width: 400px;
+    display:block;
+    box-sizing: content-box;
+}
+
+
+.navbar{
+    border-top: 2px solid #212529;
+    padding: 0px;
+    border-bottom: 1px solid #212529;
+}
+
+
+.navbar-brand{
+    font-size: 300%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+.nav-item{
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: center;
+}
+
+.register-container, .login-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+    background-color: #ffffff;
+    margin: auto;
+    box-sizing:border-box;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    border: 1px solid #212529;
+    border-radius: 5px;
+    align-items: center;
+}
+
+
+.login-container .mb-3:not(.mb-3:first-child), .register-container .mb-3:not(.mb-3:first-child){
+    margin: auto;
+    margin-top: 30px;
+}
+
+.login-container .mb-3 input, .form .mb-5 .form-control, .form_local .mt-3{
+    font-size: 18px;
+}
+
+.register-container .mb-3 input, .form .mb-5 .form-control, .form_local .mt-3{
+    font-size: 18px;
+}
+
+.form_label-login, .form .mb-5, .form_local .mt-3{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.d-flex input{
+    font-size: 17px;
+}
+
+.phrase_login{
+    font-size: 18px;
+    padding-bottom: 30px;
+}
+
+.form-check{
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/*.login-container */.form-control, .register-container .form-control{
+    width: 400px;
+}
+
+@media(max-width: 1300px)
+{
+    .login-container{
+        margin-top: 15%;
+        margin-bottom: 15%;
+    }
+}
+
+@media (max-width: 940px)
+{
+    #nav2{
+        margin-right: 5%;
+    }
+
+    .login-container{
+        margin-top: 20%;
+        margin-bottom: 20%;
+    }
+}
+
+@media (max-width: 904px)
+{
+    .login-container .form-control, .register-container .form-control{
+        width: auto;
+    }
+}
+
+@media (max-width: 494px)
+{
+    .login-container .form-control, .register-container .form-control{
+        width: 100%;
+    }
+}
+
+#nav2{
+    margin-right: auto;
+}
+
+
+#foot{
+    width: 100%;
+    box-sizing: content-box;
+    background-color: #5F7DC4;
+    padding: 0px;
+    margin-bottom: 0px;
+    height: 160%;
+}
+
+@media(max-width: 480px){
+    .dropdown_color{
+        background-color: #5F7DC4;
+    }
+    .dropdown_a_color:hover{
+        background-color: #5F7DC4;
+    }
+}
+
+@media(max-width: 380px){
+    #foot{
+        height: 220%;
+    }
+}
+  
+
+#contact_input{
+    width: 400px;
+    height: 40px;
+}
+
+.contact .input-group{
+    box-sizing: content-box;
+    width: 70%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin: auto;
+}
+
+
+.form, .form_local, .event_info{
+    display: grid;
+    justify-content: center;
+}
+
+@media (max-width: 800px)
+{
+    .contact .form .mb-5 .form-label{
+        display: block;
+        width: 80%;
+        text-align: center;
+        margin: auto;
+    }
+
+    .contact .form .mb-5 .form-control{
+        display: block;
+        width: 90%;
+        text-align: center;
+        margin: auto;
+    }
+
+    .contact .form .btn{
+        display: block;
+        margin: auto;
+        width: 90%;
+    }
+}
+
+.custom_height_pages{
+    min-height: 72vh !important;
+}
+
+#page-container{
+    position: relative;
+    min-height: 100vh;
+}
+  
+#content-wrap {
+    padding-bottom: 5rem;  
+}
+
+#footer {
+    border-top: 1px solid #212529;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+    padding: 0;        
+}
+
+  
+#content-wrap-login {
+    padding-bottom: 5rem;    
+}
+
+
+
+@media (max-width: 428px)
+{
+    #conter-wrap-login{
+        padding-bottom: 8rem;
+    }
+
+    #footer-login{
+        height: 8rem;
+    }
+}
+
+
+#foot ul li a{
+    color: #212529;
+}
+
+.event_info{
+    padding: 20px;
+}
+
+
+.all_events{
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.users{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.hidden{
+    display: none;
+}
+
+.but_cust{
+    height: 60px;
+}
+
+.but_cust:hover {
+    color: #fff;
+    background-color: #fff;
+}
+
+.custom_card_body_event{
+    margin-top: .5rem;
+    padding-top: 0px;
+}
+
+@media(max-width: 780px){
+
+    .custom_button_modify{
+        width: 280px !important;
+    }
+
+}
+
+#event{
+    width: 425px;
+}
+
+.all_user_actions{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 20px;
+}
+
+.event_container{
+    text-decoration: none;
+    color: #212529;
+}
+
+.event_container:hover{
+    color: #212529;
+}
+
+#contattaci{
+    color: #212529;
+}
+
+.eventconcerto{
+    background-image: url('../pics/concerto.jpg');
+    background-position: center;
+    background-size: 100%;
+}
+
+.eventcinema{
+    background-image: url('../pics/Cinema_Background.jpg');
+    background-position: center;
+    background-size: 100%;
+}
+
+.custom_back{
+    background-color: rgba(255, 255, 255, 0.825);
+}
+
+.custom_back_2{
+    background-color: rgba(255, 255, 255, 0.535);
+}
+
+
+.eventteatro{
+    background-image: url('../pics/theater.jpg');
+    background-position: center;
+    background-size: 150%;
+}
+
+.eventserata{
+    background-image: url('../pics/serata.jpg');
+    background-position: center;
+    background-size: 100%;
+}
+
+.navbar_style{
+    --bs-scroll-height: 100px;
+}
+
+@media(max-width: 1000px){
+    .eventcinema{
+        background-size: 300%;
+    }
+
+    .eventteatro{
+        background-size: 333%;
+    }
+    
+    .eventserata{
+        background-size: 350%;
+    }
+
+    .eventconcerto{
+        background-size: 350%;
+    }
+}
+
+.custom_local_card{
+    padding-bottom: 0px;
+}
+
+.normal_back{
+    background-image: url('../pics/background.jpg');
+}
+
+.card {
+    background-color: #e6e6e6; 
+    transition: background-color 1s; /* Aggiunge una transizione per un effetto di transizione più fluido */
+  }
+
+.card:hover {
+  background-color: white; /* Cambia il colore dello sfondo al passaggio del cursore */
+  transition: background-color 1s; /* Aggiunge una transizione per un effetto di transizione più fluido */
+}
+
+.blockquote {
+    text-align: center; /* Centra tutto all'interno del blocco blockquote */
+  }
+  
+  .blockquote a {
+    text-decoration: none; /* Rimuovi l'effetto sottolineatura */
+    color: black; /* Imposta il colore del testo su nero */
+  }
+
+
+.bg-custom{
+    background-color: #5F7DC4;
+    color: rgb(255, 255, 255);
+}
+
+.bg-site{
+    background-color: #5F7DC4;
+    color: rgb(255, 255, 255);
+}
+
+.bg-site:hover{
+    background-color: #466dc9;
+    color: rgb(255, 255, 255);
+}
+
+.p-show{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.bg-custom:hover {
+    background-color: #466dc9;
+    transition: background-color 1s;
+    color: rgb(255, 255, 255);
+  }
+
+  /* Personalizza le dimensioni del selettore */
+#searchType {
+    width: 50px; /* Larghezza personalizzata */
+    height: auto; /* Altezza personalizzata */
+  }
+  
+  /* Personalizzazione le dimensioni della barra di ricerca */
+  #searchInput {
+    width: 300px; /* Larghezza personalizzata */
+    height: auto; /* Altezza personalizzata */
+  }
+  
+
+.custom_dim{
+    width: 600px;
+}
+
+@media (max-width: 980px){
+    .custom_dim{
+        width: 500px;
+    }
+}
+
+@media (max-width: 850px){
+    .custom_dim{
+        width: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container, .container-sm {
+      max-width: 440px;
+    }
+
+    .custom_dim{
+        width: 330px;
+    }
+  }
+
+
+.button_custom_width{
+    width: 400px;
+}
+
+.button_custom_width_reg{
+    width: 350px;
+}
+
+
+@media (max-width: 480px) {
+    .container, .container-sm {
+      max-width: 350px;
+    }
+    #input_bar{
+        width: 250px;
+    }
+
+    #input_select{
+        flex: none;
+        width: 250px;
+    }
+
+    .button_custom_width{
+        width: 250px;
+    }
+
+    .button_custom_width_reg{
+        width: 250px;
+    }
+
+    #label_custom{
+        width: 250px;
+    }
+
+    .custom_footer{
+        display: block;
+    }
+  }
+
+@media(max-width: 380px){
+    .custom_footer{
+        display: block;
+        padding-right: 0rem !important;
+        margin: auto;
+    }
+}
+
+.custom_search_input{
+    height: 60px;
+}
+
+
+.input-group .form-control{
+    width: 40%;
+}
+
+#custom_search_width{
+    width: 600px;
+}
+
+#title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 300px)
+{
+    .input-group{
+        width: 300px;
+    }
+
+    .input-group .form-control{
+        width: 20%;
+    }
+
+}
+
+#genere_evento_input_group {
+    width: 400px; /* Imposta la larghezza desiderata qui */
+    height: 50px;
+  }
+
+
+#locale{
+    float: none;
+}
+
+.custom_body{
+    flex: 1 1 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.3rem;
+}
+
+.custom_titol{
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+}
+  
+.day{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#212529;
+    margin-bottom: 0.5rem;
+}
+
+.month-year, .hh-mm{
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#212529;
+}
+
+.scrollable-description {
+    max-height: 200px; /* Imposta l'altezza massima desiderata */
+    max-width: 800px;
+    overflow: auto;     /* Abilita lo scorrimento se il contenuto supera l'altezza massima */
+  }
+
+.event-button-custom{
+    width: 600px !important;
+}
+
+@media (max-width: 640px) {
+    .event-button-custom{
+        width: 500px !important;
+    }
+  }
+
+@media (max-width: 540px) {
+    .event-button-custom{
+        width: 400px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .event-button-custom{
+        width: 220px !important;
+    }
+  }
+
+#button_ok_event{
+    width:400px;
+}
+
+@media(max-width: 480px) {
+    #button_ok_event{
+        width:250px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .col-md-6 {
+      flex: 0 0 auto;
+      width: 49%;
+    }
+  }
+
+#input_container{
+    width: 900px;
+}
+
+#locale_container{
+    width: 700px;
+}
+
+.vertical-center {
+    min-height: 60vh; /* Imposta l'altezza minima al 100% della viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente il contenuto */
+  }
+
+
+#users_display{
+    --bs-gutter-y: 1.5rem !important;
+    --bs-gutter-x: 1.5rem !important;
+}
+
+
+/* Aggiungi questa classe CSS per nascondere gli eventi */
+.event_hidden {
+    display: none;
+  }
+
+/* Aggiungi questo stile CSS per mantenere i pulsanti nella parte superiore della pagina */
+.filter-buttons {
+    text-align: center;
+}
+
+#event_card{
+    padding-left: 12px;
+}
+
+@media(max-width: 1200px){
+    .custom_dim {
+        width: 430px;
+      }
+}
+
+@media(max-width: 991px){
+    .custom_dim {
+        width: 90%;
+      }
+}
+
+.custom_filter_button{
+    width: 160px;
+}
+
+.alert-dismissible {
+    padding-right: 0rem;
+  }
+
+
+
+
+

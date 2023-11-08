@@ -1,0 +1,25 @@
+  <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-body custom_local_card">
+        <h4 class="card-title mb-2 fw-bolder text-center">Nome Locale</h4>
+        <p class="card-text text-center"><%=local.nome%></p>
+        <hr>
+      </div>
+      <div class="card-body custom_local_card">
+        <h4 class="card-title mb-2 fw-bolder text-center">Email</h4>
+        <p class="card-text text-center"><%= local.proprietario %></p>
+        <hr>
+      </div>
+      <div class="card-body mx-auto">
+          <% if(local.ban === 1) {%>
+            <form action="/locali/rimuoviBan/<%= local.proprietario %>" method="POST">
+              <button type="submit" class="btn btn-success">Sblocca locale</button> 
+            </form>
+          <% }else { %>
+            <form action="/locali/bannaLocale/<%= local.proprietario %>" method="POST">
+              <button type="submit" class="btn btn-danger">Blocca locale</button> 
+            </form>
+          <% } %>
+      </div>
+    </div>
+  </div>

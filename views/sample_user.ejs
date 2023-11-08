@@ -1,0 +1,50 @@
+ <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-body custom_titol">
+          <h4 class="card-title mb-2 fw-bolder text-center">Nome - Cognome</h4>
+          <p class="card-text text-center"><%=partecipante.nome%> <%= partecipante.cognome%></p>
+          <hr>
+      </div>
+      <div class="card-body custom_body">
+        <h4 class="card-title mb-2 fw-bolder text-center">Email</h4>
+        <p class="card-text text-center"><%= partecipante.indirizzo %></p>
+        <hr>
+      </div>
+      <div class="card-body mx-auto custom_body">
+              <% if(info) { %>
+                  <% if(partecipante.ban) { %>
+                      <form action="/utenti/rimuoviBan/<%= partecipante.indirizzo %>" method="POST"  class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-success btn-block mb-2">Sblocca utente</button> 
+                      </form>
+                  <% } else { %>
+                      <form action="/utenti/bannaUtente/<%= partecipante.indirizzo %>" method="POST"  class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-danger btn-block mb-2">Blocca utente</button> 
+                      </form>
+                  <% } %>
+                    </div>
+          <div class="row mx-auto custom_body">
+              <% if(info) { %>
+                  <% if(partecipante.admin) { %>
+                      <form action="/utenti/rimuoviAdmin/<%= partecipante.indirizzo %>" method="POST"  class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-danger btn-block mb-2">Rimuovi admin</button> 
+                      </form>
+                  <% } else { %>
+                    <form action="/utenti/aggiungiAdmin/<%= partecipante.indirizzo %>" method="POST" class="d-flex justify-content-center">
+                      <button type="submit" class="btn btn-warning btn-block mb-2">Aggiungi admin</button> 
+                    </form>
+                  <% } %>
+              <% } %>
+
+        <% }else{ %>
+          <form action="/eventi/<%=eventDetails.codice_evento%>/partecipante/<%= partecipante.indirizzo %>" method="POST">
+            <button type="submit" class="btn btn-danger mb-2">Rimuovi partecipante</button>
+          </form>
+        <% } %>
+      </div>      
+    </div>
+  </div>
+
+  
+
+
+

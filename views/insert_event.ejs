@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink: crea evento</title>
+</head>
+<body>
+    <div id="page-container" class="normal_back">
+        <div id="content-wrap">
+            <%- include("navbar.ejs", {type, admin}) %>
+
+            <% if(insert) {%>
+                <figure class="text-center"  id="title">
+                        <h2>Crea un nuovo evento</h2>
+                        <hr>
+                </figure>
+
+                <div class="container mt-5 mx-auto vertical-center mb-5 rounded custom_height_pages" id="input_container">
+                    <form action="/insert-event" method="post">
+                        <% if(failure) { %>
+                            <div class="row">
+                                <div class="alert alert-danger alert-dismissible fade show text-center w-75 mt-3 mx-auto" role="alert">
+                                    <strong>Errore: <%= error %></strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        <% } %>
+
+                        <div class="row">
+                            <div class="mt-4 text-center">
+                                <label for="nome_evento" class="form_label-login">Nome dell'evento</label>
+                                <input type="text" class="form-control mx-auto" id="input_bar" name= "nomeEvento" placeholder="inserisci un nome...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mt-4 text-center">
+                                <label for="data_evento" class="form_label-login">Data dell'evento</label>
+                                <input type="datetime-local" class="form-control mx-auto" id="input_bar" name= "dataEvento" placeholder="inserisci una data...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mt-4 text-center">
+                                <label for="descrizione_evento" class="form_label-login">Descrizione dell'evento</label>
+                                <textarea class="form-control mx-auto" id="input_bar" name="descrizioneEvento" placeholder="Inserisci una descrizione dell'evento che vuoi creare..." rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-group mt-4 mx-auto" id="event">
+                                <label class="input-group-text mx-auto" for="genere_evento" id="label_custom">Genere di evento:</label>
+                                    <select class="form-select mx-auto" id="input_select" name="genereEvento">
+                                        <option value="Concerto">Concerto</option>
+                                        <option value="Serata">Serata</option>
+                                        <option value="Teatro">Teatro</option>
+                                        <option value="Cinema">Cinema</option>
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <button type="submit" class="btn bg-site mt-4 mx-auto mb-4" id="button_ok_event">Crea evento</button>
+                        </div>
+                    </form>
+                </div>
+            <% }else { %>
+                <figure class="text-center">
+                    <blockquote class="blockquote">
+                        <h2>Modifica l'evento</h2>
+                    </blockquote>
+                </figure>
+    
+                <div class="container mt-5 mx-auto vertical-center mb-5 rounded custom_height_pages" id="input_container">
+                    <form action="/modifica/<%=evento.codice_evento%>" method="POST">
+                        <% if(failure) { %>
+                            <div class="row">
+                                <div class="alert alert-danger alert-dismissible fade show text-center w-75 mt-3 mx-auto" role="alert">
+                                    <strong>Errore: <%= error %></strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        <% } %>
+
+                        <div class="row">
+                            <div class="mt-4 text-center">
+                                <label for="nome_evento" class="form_label-login">Nome dell'evento</label>
+                                <input type="text" class="form-control mx-auto" id="input_bar" value= "<%=evento.nomeEve%>" name= "nomeEvento" placeholder="inserisci un nome...">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mt-4 text-center">
+                                <label for="data_evento" class="form_label-login">Data dell'evento</label>
+                                <input type="datetime-local" class="form-control mx-auto" value= "<%=evento.data%>" id="input_bar" name= "dataEvento" placeholder="inserisci una data...">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mt-4 text-center">
+                                <label for="descrizione_evento" class="form_label-login">Descrizione dell'evento</label>
+                                <input type="text" class="form-control mx-auto" value= "<%=evento.descrizione%>" id="input_bar" name = "descrizioneEvento" placeholder="Inserisci una descrizione dell'evento che vuoi creare...">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mt-4 mx-auto" id="event">
+                                <label class="input-group-text mx-auto" for="genere_evento" id="label_custom">Genere di evento:</label>
+                                    <select class="form-select mx-auto" id="input_select" name="genereEvento">
+                                        <option value="Concerto">Concerto</option>
+                                        <option value="Serata">Serata</option>
+                                        <option value="Teatro">Teatro</option>
+                                        <option value="Cinema">Cinema</option>
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <button type="submit" class="btn bg-site mt-4 mx-auto mb-4" id="button_ok_event">Modifica</button>
+                        </div>
+                    </form>
+                </div>
+            <% } %>
+        <%- include("footer.ejs") %>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+  
+
+</html>

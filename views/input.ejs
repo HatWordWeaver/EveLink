@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink</title>
+</head>
+<body>
+  <div id="page-container" class="normal_back">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin}) %>
+
+      <% if(login) { %>
+          <div class="container-sm mt-5 mx-auto vertical-center mb-5 rounded custom_height_pages" id="input_container">
+            <form action="/login" method="POST">
+              <% if(failure) { %>
+                <div class="row mb-5">
+                  <div class="alert alert-danger alert-dismissible fade show text-center w-75 mt-3 mx-auto" role="alert">
+                    <strong>Errore: <%= message %></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+              <% } %>
+              <div class="row">
+                <div class="mt-3 mb-3 text-center">
+                  <label for="exampleFormControlInput1" class="form_label-login">Indirizzo email</label>
+                  <input type="email" id="input_bar" class="form-control mx-auto" value="<%= failure ? insertedMail : '' %>" name="email" placeholder="name@example.com">
+                </div>
+              </div>
+              <div class="row">
+                <div class="mb-3 text-center">
+                  <label for="exampleFormControlInput1" class="form_label-login">Password</label>
+                  <input type="password" id="input_bar" value="<%= failure ? insertedPassword : '' %>" class="form-control mx-auto" name="password" aria-labelledby="passwordHelpBlock">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="form-check text-center mt-4">
+                    <input class="form-check-input" type="checkbox" id="locale" name="boolLocale">
+                    <label class="form-check-label" for="locale">
+                      Sono un locale
+                    </label>
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn bg-site mb-4 mt-4 mx-auto button_custom_width">Accedi</button>
+                  </div>
+              </div>
+            </form>
+            <div class="row text-center">
+              <a class="phrase_login" href="/register">Non possiedi un account? Registrati</a>
+            </div>
+          </div>
+      
+      <% }else{ %>
+        <div class="container-sm mt-5 mx-auto vertical-center mb-5 rounded custom_height_pages" id="input_container">
+          <form action="/register" method="POST">
+            <% if(failure) { %>
+              <div class="row text-center">
+                <div class="alert alert-danger alert-dismissible fade show text-center w-75 mt-3 mx-auto" role="alert">
+                  <strong><%= message %></strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </div>
+            <% } %>
+            <div class="row">
+              <div class="col">
+                <div class="mb-3 text-center">
+                  <label for="inputNome" class="form_label-login">Nome</label>
+                  <input type="text" class="form-control mx-auto" value="<%= failure ? insertedName : '' %>" id="input_bar" name ="nome" placeholder="Inserisci un nome...">
+                </div>  
+              </div>
+              <div class="col">
+                <div class="mb-3 text-center">
+                  <label for="inputCognome" class="form_label-login">Cognome</label>
+                  <input type="text" class="form-control mx-auto" value="<%= failure ? insertedCognome : '' %>"id="input_bar" name = "cognome" placeholder="Inserisci un cognome...">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="mb-3 text-center">
+                  <label for="inputEmail" class="form_label-login">Indirizzo email</label>
+                  <input type="email" class="form-control mx-auto" value="<%= failure ? insertedMail : '' %> "id="input_bar" name = "email" placeholder="name@example.com">
+                </div>
+              </div>
+              <div class="col">
+                <div class="mb-3 text-center">
+                  <label for="inputPassword" class="form_label-login">Password</label>
+                  <input type="password" id="input_bar" class="form-control mx-auto" name = "password" aria-labelledby="passwordHelpBlock">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 text-center">
+                  <label for="data_nascita" class="form_label-login">Data di nascita</label>
+                  <input type="date" class="form-control mx-auto" value="<%= failure ? insertedData : '' %>" id="input_bar" name= "dataNascita" placeholder="inserisci una data...">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 text-center mx-auto" id="event">
+                  <label for="sesso_utente form_label-login" class="form_label-login">Sesso</label>
+                      <select class="form-select mx-auto" id="input_select" name="sessoUtente">
+                          <option value="Maschio">Maschio</option>
+                          <option value="Femmina">Femmina</option>
+                          <option value="Neutro">Neutro</option>
+                      </select>
+                </div>
+              
+            </div>
+            <div class="row">
+              <div class="text-center">
+                <button type="submit" class="btn bg-site mb-4 mt-3 mx-auto button_custom_width">Registrati</button>
+              </div>
+            </div>
+            <div class="row">
+                <div class="text-center mb-2">
+                  <a class=" centered phrase_login" href="/login"> Possiedi un account? Accedi</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center mb-2">
+                  <a class=" centered phrase_login" href="/register/locale"> Sei un locale? Registrati qui!</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      <%} %>
+
+      <%- include("footer.ejs") %>
+    </div>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink: <%=localDetails.nome%></title>
+</head>
+<body>
+  <div id="page-container" class="normal_back">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin}) %>
+
+      <figure class="text-center" id="title">
+          <h2>Locale: <%= localDetails.nome %></h2>
+          <hr>
+      </figure>
+      
+      <div class="container-sm border border-2 mt-5 mx-auto vertical-center mb-5 rounded custom_height_pages custom_back_2" id="locale_container">
+        <div class="row p-show">
+            <p class="h4 text-center fw-bolder">Nome del locale</p>
+            <p class="fs-4 text-center"><%= localDetails.nome %></p>
+            <hr>
+        </div>
+        <div class="row p-show">
+            <p class="h4 text-center fw-bolder">Indirizzo</p>
+            <p class="fs-4 text-center"><%= localDetails.indirizzo %>, <%= localDetails.CAP%>, <%= localDetails.citta%> &#40;<%= localDetails.provincia%>&#41;</p>
+            <hr>
+          </div>
+        <div class="row p-show">
+            <p class="h4 text-center fw-bolder">Email</p>
+            <p class="fs-4 text-center"><%=localDetails.proprietario%></p>
+            <hr>
+          </div>
+        <div class="row p-show">
+          <!-- Mostra il pulsante aggiuntivo solo se l'utente è un amministratore o il creatore dell'evento -->
+          <form action="/locali/<%=localDetails.proprietario%>/modify" method="get" class="d-flex justify-content-center">
+            <button type="submit" class="btn bg-site w-50 mb-2 mt-3 mx-auto custom_button_modify">Modifica dati locale</button>
+          </form>
+        </div>
+      </div>
+      <%- include("footer.ejs") %>
+    </div>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink</title>
+</head>
+<body>
+    <div id="page-container" class="normal_back">
+        <div id="content-wrap">
+        
+          <%- include("navbar.ejs", {type, admin, email}) %>
+
+          <figure class="text-center" id="title">
+                <h2><%= data%></h2>
+                <hr>
+          </figure>
+
+          <div class="all_events users">
+
+            <%if(info) { %>
+              <form class="d-flex" action="/utenti/ricercaUtente" method="post">
+                <div class="input-group" id="custom_search_width">
+                  <input type="text" class="form-control mb-3 p-3 mx-auto custom_search_input" name="stringaRicerca" placeholder="Inserisci una mail per cercare..." id="search-input">
+                  <button class="btn btn-outline-secondary btn-light fs-6 text-dark but_cust" type="submit">Cerca</button>
+                </div>
+              </form>
+            <% }else{ %>
+              <form class="d-flex" action="/partecipazioni/<%=eventDetails.codice_evento%>/ricercaPartecipante" method="post">
+                <div class="input-group" id="custom_search_width">
+                  <input type="text" class="form-control mb-3 p-3 mx-auto custom_search_input" name="stringaRicerca" placeholder="Inserisci una mail per cercare..." id="search-input">
+                  <button class="btn btn-outline-secondary btn-light fs-6 text-dark but_cust" type="submit">Cerca</button>
+                </div>
+              </form>
+            <% } %>
+
+            <div class="row row-cols-1 row-cols-md-4 g-4 <%if(utenti.length === 1 || utenti.length === 2 || utenti.length === 3) { %> justify-content-center<% } %>" id="users_display">
+
+              <% if(info) { %>
+                <% utenti.forEach(function(utente) { %>
+                    <% if(utente.indirizzo != email) { %>
+                        <%- include("sample_user.ejs", {info, partecipante: utente}) %> 
+                      </a>
+                    <% } %>
+                <% }); %>
+                <% } else { %>
+                    <% utenti.forEach(function(utente) { %>
+                      <%- include("sample_user.ejs", {info, partecipante: utente}) %>
+                    </a>               
+                    <%})%>
+                <% } %>
+              
+            </div>
+          </div>
+        </div>
+      <%- include("footer.ejs") %>
+    </div>
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

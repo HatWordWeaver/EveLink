@@ -1,0 +1,25 @@
+------- installazione moduli -------
+
+npm install
+
+------- start del server -------
+
+npm run devStart
+
+------- account per testare -------
+
+account locale:
+email: alcatrazmilano@gmail.com
+password: sassofono02
+
+account utente:
+email: andreavavassori@gmail.com
+password: sassofono02
+
+account admin(utente + permessi):
+email: riccardonazzari@gmail.com
+password: sassofono02
+
+------- video youtube -------
+
+https://youtu.be/DZ6OlJFs2wI

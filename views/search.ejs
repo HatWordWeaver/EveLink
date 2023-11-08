@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink</title>
+</head>
+<body>
+  <div id="page-container" class="normal_back">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin, email}) %>
+
+        <figure class="text-center" id="title">
+          <h2>Risultati ricerca per: <%= query_scelta %></h2>
+          <hr>
+        </figure>
+
+        <div class="all_events">
+          <div class="dropdown-center d-flex mb-3">
+            <button class="btn border dropdown-toggle custom_filter_button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Filtra eventi
+            </button>
+            
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="showAllEvents">Tutti gli eventi</a></li>
+              <li><a class="dropdown-item" id="filterConcerto">Concerto</a></li>
+              <li><a class="dropdown-item" id="filterCinema">Cinema</a></li>
+              <li><a class="dropdown-item" id="filterSerata">Serata</a></li>
+              <li><a class="dropdown-item" id="filterTeatro">Teatro</a></li>
+            </ul>            
+          </div>
+
+          <div class="row mb-2" id='show_events'>
+            <% events.forEach(function(event) { %>
+              <div class="col-12 col-md-6 mx-auto mb-3 event_mod">
+                <a class="event_container" href="/eventi/<%=event.IDevento%>" data-category="<%= event.genere %>">
+                  <%- include("sample_event.ejs", { event: event }) %>
+                </a>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+
+        <% if(totalPages > 1) { %>
+
+          <nav aria-label="...">
+            <ul class="pagination justify-content-center">
+              <%if(currentPage-1 >= 1) { %>
+                  <%if(ricerca) { %>
+                    <li class="page-item">
+                    <a class="page-link" href="/ricerca/generica/<%=query_scelta%>/<%=search%>?page=<%= currentPage-1 %>">Precedente</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="/ricerca/generica/<%=query_scelta%>/<%=search%>?page=<%= currentPage-1 %>"><%= currentPage-1 %></a></li>
+                    <% }else{ %>
+                    <li class="page-item">
+                    <a class="page-link" href="/ricerca/specifica/<%=query_scelta%>/<%=search%>?page=<%= currentPage-1 %>">Precedente</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="/ricerca/specifica/<%=query_scelta%>/<%=search%>?page=<%= currentPage-1 %>"><%= currentPage-1 %></a></li>
+                    <% } %>
+              <%} else {%>
+                <li class="page-item disabled">
+                  <a class="page-link">Precedente</a>
+                  </li>
+              <%}%>   
+              <% for (let page = currentPage; page <= totalPages && page <= 9; page++) { %>
+                <%if(ricerca) {%>
+                  <% if(currentPage === page) { %>
+                    <li class="page-item disabled">
+                      <a class="page-link"><%=currentPage%></a>
+                    </li>
+                  <% }else{ %>
+                    <li class="page-item"><a class="page-link" href="/ricerca/generica/<%=query_scelta%>/<%=search%>?page=<%= page %>"><%= page %></a></li>
+                  <% } %>
+                <%}else{%>
+                  <% if(currentPage === page) { %>
+                    <li class="page-item disabled">
+                      <a class="page-link"><%=currentPage%></a>
+                    </li>
+                  <% } else { %>
+                    <li class="page-item"><a class="page-link" href="/ricerca/specifica/<%=query_scelta%>/<%=search%>?page=<%= page %>"><%= page %></a></li>
+                  <% } %>
+                <%}%>
+              <% } %>
+              <%if(currentPage+1 <= totalPages) { %>
+                <li class="page-item">
+                  <%if(ricerca){%>
+                    <a class="page-link" href="/ricerca/generica/<%=query_scelta%>/<%=search%>?page=<%= currentPage+1 %>">Successiva</a>
+                  <%}else{%>
+                    <a class="page-link" href="/ricerca/specifica/<%=query_scelta%>/<%=search%>?page=<%= currentPage+1 %>">Successiva</a>
+                  <%}%>
+                </li>
+              <%} else {%>
+                <li class="page-item disabled">
+                  <a class="page-link">Successiva</a>
+                </li>
+              <%}%>    
+            </ul>
+          </nav>
+
+        <% } %>
+
+      <%- include("footer.ejs") %>
+    </div>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <script src="/public/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+
+<div class="card w-100 mx-autoshadow-lg border-1 custom_border h-100" id="event_card">
+    <div class="row">
+      <div class="col-3 md-4 first_card d-flex flex-column justify-content-center">
+        <h3 class="month-year text-center mt-2"><%= event.giorno %></h3>
+        <p class="month-year text-center fs-5"><%= event.meseAbbreviato %> <%= event.anno%></p>
+        <p class=" day text-center fs-5"><%= event.orario %></p>
+      </div>    
+    <div class="col">
+      <div class="card-body custom_card_body_event d-flex flex-column justify-content-center">
+        <h4 class="card-title fw-semibold"><%= event.nome %></h4>
+        <p class="card-text">Luogo dell'evento: <%= event.luogo %>, <%= event.citta %></p>
+        <p class="card-text">Indirizzo: <%= event.indirizzo%> <%= event.CAP%> &#40;<%= event.provincia%>&#41;</p>
+      </div>
+    </div>
+  </div>
+</div>

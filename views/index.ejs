@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink: prossimi eventi</title>
+</head>
+<body>
+  <div id="page-container" class="normal_back">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin}) %>
+
+        <figure class="text-center" id="title">
+            <h2>Prossimi eventi</h2>
+            <hr>
+        </figure>
+        
+        <div class="all_events">
+          <div class="row mt-4 mb-3">
+            <% for (let i = 0; i < events.length && i < 12; i++) { %>
+              <% const event = events[i]; %>
+              <div class="col-12 col-md-6 mx-auto mb-3">
+                <a class="event_container" href="/eventi/<%= event.IDevento %>" data-category="<%= event.genere %>">
+                  <%- include("sample_event.ejs", { event: event }) %>
+                </a>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      <%- include("footer.ejs") %>
+    </div>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink: <%=eventDetails.nomeEve%></title>
+</head>
+<body>
+  <div id="page-container" class="
+    <% if (eventDetails.genere === 'Concerto') { %>
+    eventconcerto
+    <% } else if (eventDetails.genere === 'Cinema') { %>
+    eventcinema
+    <% } else if (eventDetails.genere === 'Teatro') { %>
+    eventteatro
+    <% } else if (eventDetails.genere === 'Serata') { %>
+    eventserata
+    <% } else { %>
+    normal_back
+    <% } %>">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin}) %>
+      
+      <div class="container-sm mt-5 mx-auto vertical-center mb-5 rounded custom_height_pages custom_back" id="input_container">
+        <div class="row mt-3 p-show">
+          <p class="h3 text-center fw-bolder"><%= eventDetails.nomeEve %></p>
+          <hr>
+      </div>
+        <div class="row mt-3 p-show">
+            <p class="h4 text-center fw-bolder">Giorno e orario dell'evento</p>
+            <p class="fs-5 text-center"><%= eventDetails.giorno %> <%= eventDetails.mese%> <%= eventDetails.anno %> alle <%= eventDetails.orario %></p>
+            <hr>
+        </div>
+        <div class="row mt-3 p-show">
+            <p class="h4 text-center fw-bolder">Luogo dell'evento</p>
+            <p class="fs-4 text-center"><%= eventDetails.nomeLoc%></p>
+            <p class="fs-5 text-center"><%= eventDetails.indirizzo %>, <%= eventDetails.CAP%>, <%= eventDetails.citta%> &#40;<%= eventDetails.provincia%>&#41;</p>
+            <hr>
+        </div>
+        <div class="row mt-3 p-show">
+            <p class="h4 text-center fw-bolder">Descrizione dell'evento</p>
+            <div class="scrollable-description text-center mx-auto mb-3">
+              <p class="fs-5 text-center"> <%= eventDetails.descrizione %></p>
+            </div>    
+            <hr>              
+        </div>
+        <div class="row mt-3 p-show">
+            <p class="h4 text-center fw-bolder">Partecipanti</p>
+            <p class="fs-5 text-center"> <%= countPart %></p>
+            <hr>
+        </div>
+        <% if (partecipazione == 2) { %>
+          <div class="row">
+            <!-- Mostra il pulsante "Registrati o accedi" se l'utente non è loggato sul sito -->
+            <form action="/login" method="get" class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-danger w-50 mt-2 mb-3">Accedi per prenotare</button>
+            </form>
+          </div>
+        <% } %>
+        <% if (partecipazione == 1) { %>
+          <div class="row">
+            <!-- Mostra il pulsante "Rimuovi prenotazione" se l'utente è già registrato -->
+            <form action="/partecipazioni/<%=eventDetails.codice_evento%>/true" method="post" class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-danger w-50 mb-3">Rimuovi prenotazione</button>
+            </form>
+          </div>
+        <% } else if(partecipazione == 0 && (type === "user")) { %>
+          <div class="row">
+            <!-- Mostra il pulsante "Prenotati!" se l'utente non è ancora registrato -->
+            <form action="/partecipazioni/<%=eventDetails.codice_evento%>/false" method="post" class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-success w-50 mb-3">Prenotati!</button>
+            </form>
+          </div>
+          <% } %>
+          <% if (admin || eventDetails.fondatore == email) { %>
+            <div class="row">
+            <!-- Mostra il pulsante aggiuntivo solo se l'utente è un amministratore o il creatore dell'evento -->
+            <form action="/eventi/<%=eventDetails.codice_evento%>/rimuovi" method="post" class="d-flex justify-content-center">
+              <button type="button" class="btn btn-danger w-50 mb-2" data-bs-toggle="modal" data-bs-target="#RimuoviEventoModal">Rimuovi evento</button>
+            </form>
+  
+            <div class="modal fade" id="RimuoviEventoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Rimuovi evento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Sei sicuro di rimuovere l'evento selezionato? Non puoi tornare indietro!
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <form action="/eventi/<%=eventDetails.codice_evento%>/rimuovi" method="post" class="d-flex justify-content-center">
+                      <button type="submit" class="btn btn-danger w-100">Rimuovi evento</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+          <% if (eventDetails.fondatore == email) { %>
+            <div class="row">
+              <!-- Mostra il pulsante aggiuntivo solo se l'utente è un amministratore o il creatore dell'evento -->
+              <form action="/modifica/<%=eventDetails.codice_evento%>" method="get" class="d-flex justify-content-center">
+                <button type="submit" class="btn bg-site w-50 mb-2">Modifica evento</button>
+              </form>
+            </div>
+          <% } %>
+          <% if(eventDetails.fondatore == email && countPart != 0) { %>
+            <div class="row">
+              <form action="/eventi/<%=eventDetails.codice_evento%>/partecipanti" method="get" class="d-flex justify-content-center">
+                <button type="submit" class="btn bg-site w-50 mb-2">Vedi partecipanti</button>
+              </form>
+            </div>
+          <% } %>
+      </div>
+        <%- include("footer.ejs") %>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+  </html>

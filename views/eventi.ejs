@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink: eventi</title>
+</head>
+<body>
+  <div id="page-container" class="normal_back">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin}) %>
+
+      <figure class="text-center" id="title">
+          <h2>I tuoi eventi</h2>
+          <hr>
+      </figure>
+
+      <div class="all_events">
+
+        <% if(type === "local") {%>
+
+          <form action="/insert-event" method="GET" class="d-flex justify-content-center">
+            <div class="d-grid gap-2">
+              <button class="btn w-75 mx-auto mb-3 py-3 bg-custom border-0 event-button-custom" type="submit"><h5>Crea un nuovo evento!</h5></button>
+            </div>
+          </form>
+          
+          <div class="row mb-2 mt-2">
+            <% eventsOnPage.forEach(function(event) { %>
+                <div class="col-12 col-md-6 mx-auto mb-3 event_mod">
+                  <a class="event_container" href="/eventi/<%=event.IDevento%>">
+                    <%- include("sample_event.ejs", { event: event}) %>
+                  </a>
+                </div>
+            <% }); %>
+          </div>
+
+
+
+          <% if(totalPages > 1) { %>
+
+            <nav aria-label="...">
+              <ul class="pagination justify-content-center">
+                <%if(currentPage-1 >= 1) { %>
+                  <li class="page-item">
+                    <a class="page-link" href="/eventi?page=<%= currentPage-1 %>">Precedente</a>
+                  </li>
+                <%} else {%>
+                  <li class="page-item disabled">
+                    <a class="page-link">Precedente</a>
+                  </li>
+                <%}%>   
+                <% for (let page = 1; page <= totalPages; page++) { %>
+                  <%if(page === currentPage) { %>
+                    <li class="page-item disabled">
+                      <a class="page-link"><%=currentPage%></a>
+                    </li>
+                  <% } else { %>
+                    <li class="page-item"><a class="page-link" href="/eventi?page=<%= page %>"><%= page %></a></li>             
+                  <% } %>
+                <% } %>
+                <%if(currentPage+1 <= totalPages) { %>
+                  <li class="page-item">
+                  <a class="page-link" href="/eventi?page=<%=currentPage+1 %>">Successiva</a>
+                  </li>
+                <%} else {%>
+                  <li class="page-item disabled">
+                    <a class="page-link">Successiva</a>
+                    </li>
+                <%}%>    
+              </ul>
+            </nav>
+
+            <% }}else{%>
+            
+              <div class="row">
+                <% eventsOnPage.forEach(function(event) { %>
+                    <div class="col-12 col-md-6 mx-auto mb-3 event_mod">
+                      <a class="event_container" href="/eventi/<%=event.IDevento%>">
+                        <%- include("sample_event.ejs", { event: event}) %>
+                      </a>
+                    </div>
+                <% }); %>
+              </div>
+
+            <% if(totalPages > 1) { %>
+              <nav aria-label="...">         
+                <ul class="pagination justify-content-center">
+                  <%if(currentPage-1 >= 1) { %>
+                    <li class="page-item">
+                    <a class="page-link" href="/partecipazioni?page=<%= currentPage-1 %>">Precedente</a>
+                    </li>
+                  <%} else {%>
+                    <li class="page-item disabled">
+                      <a class="page-link">Precedente</a>
+                    </li>
+                  <%}%>   
+                  <% for (let page = 1; page <= totalPages; page++) { %>
+                    <% if(currentPage === page) { %>
+                      <li class="page-item disabled">
+                        <a class="page-link"><%=currentPage%></a>
+                      </li>
+                    <% }else{ %>
+                      <li class="page-item"><a class="page-link" href="/partecipazioni?page=<%= page %>"><%= page %></a></li>             
+                    <% } %>
+                    
+                  <% } %>
+                    <%if(currentPage+1 <= totalPages) { %>
+                      <li class="page-item">
+                      <a class="page-link" href="/partecipazioni?page=<%= currentPage+1 %>">Successiva</a>
+                      </li>
+                    <%} else {%>
+                      <li class="page-item disabled">
+                        <a class="page-link">Successiva</a>
+                        </li>
+                    <%}%>         
+                </ul>
+              </nav>
+
+            <% } %>
+
+          <% } %>
+
+
+      </div>
+
+        <%- include("footer.ejs") %>
+    </div>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+
+</html>

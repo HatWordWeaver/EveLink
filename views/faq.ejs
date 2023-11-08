@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink: FAQ</title>
+</head>
+<body>
+  <div id="page-container" class="normal_back">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin}) %>
+
+      <figure class="text-center" id="title">
+          <h2>Domande Frequenti</h2>
+          <hr>
+      </figure>
+    
+      <div class="container-sm mt-2 mx-auto vertical-center mb-2 rounded">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Come si utilizza il sito?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  Per prima cosa, non è necessario iscriversi: gli eventi si possono visualizzare anche senza essere registrati al sito. Altrimenti, registrati sul sito e - cliccando sugli eventi o cercando
+                  con la barra di ricerca, prenotati agli eventi a cui vuoi partecipare!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  Possiedo un locale, come lo registro?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                 Abbiamo un form apposito per registrare un locale! Tutto quello che devi fare è andare su Accedi -> Non possiedi un account?Registrati -> Sei un locale? Registrati qui
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                  Come prenotarsi a un evento?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  Per prenotarsi ad un evento è sufficiente essere registrati. Cliccando sulla scheda dell'evento scelto, premi su "Prenotati!"
+                  e sei prenotato!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                  Devo pagare per prenotarmi?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  La prenotazione è sempre gratuita.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                  Devo essere necessariamente registrato?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  No, a patto di voler solamente leggere gli eventi sul sito.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                  Posso togliere la prenotazione a un evento?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  Certamente! Sulla pagina dell'evento.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
+                  C'è un limite di eventi a cui partecipare?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  No!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">
+                  Posso inserire più di un locale con lo stesso account?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  No, devi creare un account per ogni locale che possiedi.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine">
+                  Come posso resettare la password?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  Contattaci tramite l'apposito form!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen">
+                  I miei dati sono al sicuro?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  Sì!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false" aria-controls="panelsStayOpen-collapseEleven">
+                  E' possibile iscriversi a più eventi dello stesso giorno?
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  Assolutamente.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <figure class="text-center mt-4">
+            <a class="h5" href="/contattaci" id="contattaci">Non c'è la risposta che cercavi? Contattaci!</a>
+          </figure>
+        </div>
+      </div>
+
+
+
+      <%- include("footer.ejs") %>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

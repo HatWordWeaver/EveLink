@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Evelink</title>
+</head>
+<body>
+  <div id="page-container" class="normal_back">
+    <div id="content-wrap">
+      <%- include("navbar.ejs", {type, admin}) %>
+
+      <figure class="text-center" id="title">
+          <h2>Locali presenti nel sito</h2>
+          <hr>
+      </figure>
+
+      <div class="all_events users">
+
+        <form class="d-flex" action="/locali/ricercaLocale" method="post">
+          <div class="input-group" id="custom_search_width">
+            <input type="text" class="form-control mb-3 p-3 mx-auto custom_search_input" name="stringaRicerca" placeholder="Inserisci un locale per cercare..." id="search-input">
+            <button class="btn btn-outline-secondary btn-light fs-6 text-dark but_cust" type="submit">Cerca</button>
+          </div>
+        </form>
+        <div class="row row-cols-1 row-cols-md-4 g-4 <%if(locals.length === 1 || locals.length === 2) { %> justify-content-center<% } %>">
+
+
+          <% locals.forEach(function(local) { %>
+            <a class="event_container" href="/locali/<%=local.proprietario%>" data-nome="<%= local.nome %>">
+              <%- include("sample_local.ejs", { local: local}) %>
+            </a>
+          <% }); %>
+        </div>
+
+      </div>
+      
+
+      <%- include("footer.ejs") %>
+    </div>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
